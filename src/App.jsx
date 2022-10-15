@@ -4,6 +4,7 @@ import './App.css'
 import CardResident from './components/CardResident'
 import LocationInfo from './components/LocationInfo'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 function App() {
   const [location,setLocation] = useState()
@@ -35,11 +36,24 @@ function App() {
     
     <div className="App"> 
     <Header />   
+      <div className="Form_info_container">
+        
       <div className="Form_info">
+      
       <form onSubmit={handleSubmit}>
-        <input id="search" type="text" />
-        <button>Search</button>
+        <input id="search" type="text" required="required" />
+        <span>Search by Universe</span>
+        <i></i>
+        
+        <div className='Button_container'>
+        <br />
+          <a href="#">
+        <button className='Button'>Search</button>
+          </a>
+        </div>
+      
       </form>
+      </div>
       </div>
       <LocationInfo location={location} />
       <div className='card_container'>
@@ -51,6 +65,9 @@ function App() {
             />
           ))
         }
+      </div>
+      <div className="Footer_containerapp">
+      <Footer />
       </div>
     </div>
   )

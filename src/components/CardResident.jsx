@@ -15,6 +15,7 @@ const colorstyleStatus = [
   const CardResident = ({url}) => {
   const resident = useFetch(url)
   const [colorStatus, setColorStatus] = useState();
+    //Para el color de vivo, muerto o desconocido
   useEffect(() => {
     if (resident?.status === "Alive"){
       setColorStatus(colorstyleStatus[0])

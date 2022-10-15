@@ -8,14 +8,20 @@ body{
     font-size: 1em;
     display: flex;
     justify-content: center;
-    text-align: center;
+    text-align: center;   
 }
 .Location_info{  
     background-color: rgb(40, 43, 34) ;
     border-radius: 5px;
-    width: 500px;
-    margin: 10px;   
-    
+    max-width: 500px;
+    max-height: 100px;
+    margin: 10px;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );   
 }
 .Location_info > ul{
     display: grid;
@@ -29,8 +35,141 @@ body{
 ul{
     list-style: none;
 }
-.Form_info{
+.Form_info_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      
+    margin-top: 20px;
+    margin-bottom: 10px; 
+}
+.Form_info {
+    padding: 10px;   
+    position: relative;
+    display: flex;
+}
+.Form_info input{
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 0.9em;
+    letter-spacing: 0.1em; 
     text-align: center;
+}
+.Form_info span{
+    position: absolute;
+    top: 8.5px;
+    pointer-events: none;
+    transition: 0.7s;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-style: oblique;
+    font-weight: 100;
+} 
+.Form_info input:valid ~ span,
+.Form_info input:focus ~ span{
+    color:#345aad;
+    transform: translateY(-20px);
+    font-size: 0.9em;
+    font-weight: bolder;
+}
+.Form_info i{
+    position: absolute;
+    left:0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    overflow: hidden
+}
+.Form_info i::before{
+    content: '';
+    position: absolute;   
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgb(59, 67, 43),#fff,rgb(40, 43, 34),#9c27b0);
+    animation: animate 2s linear infinite
+}
+@keyframes animate {
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 190px;
+    }
+}
+.Form_info button{
+    border: none;
+    cursor: pointer;  
+    border-radius: 5px; 
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+} 
+.Button_container{
+    margin-top: 4px;
+    text-align: center;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Button_container a{
+    position: relative;
+    display: inline-block;
+    background: #fff;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;    
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.Button_container a:before,
+.Button_container a:after{
+    content:'';
+    position: absolute;
+    inset: 0;
+    background: #f00;
+    transition: 0.8s;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.Button_container a:hover:before{
+    inset: -0.5px
+}
+.Button_container a:hover:after{
+    inset: -0.5px;
+    filter: blur(10px)
+}
+.Button_container a button{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: rgb(31, 33, 29);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 .Status{
     display: flex;
@@ -44,17 +183,12 @@ ul{
     background-color: rgb(40, 43, 34);
     margin-right:15px;
     margin-left: 15px;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
-button{
-    background-color: rgb(40, 43, 34);
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 1em;
-    border: none;
-    cursor: pointer;
-}
-
 .circle{
     width: 10px;
     height: 10px;
@@ -67,4 +201,109 @@ button{
     padding: 10px;
     gap: 10px; 
     justify-content: center;  
+}
+.Footer_container{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+    width:max-content;
+}
+.line{
+    background-color: #fff;
+    width: 46px;
+    height: 6px;
+    border-radius: 10px;
+    transition: 0.5s ease-in-out;
+}
+.Footer_container:hover{
+    cursor:pointer;
+}
+.Footer_container:hover .line-1{
+    transform: translateY(-30px);
+}
+.Footer_container:hover .line-2{
+    opacity: 0;
+}
+.Footer_container:hover .line-3{
+    transform: translateY(30px);
+}
+.Footer_container .menu{
+    visibility: hidden;
+    position: absolute;
+}
+.Footer_container:hover .menu{
+    visibility: visible;
+    transition: 0.9s ease-in-out
+}
+.Footer_container .menu ul{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+    opacity: 0;
+}
+.Footer_container:hover .menu ul{
+    opacity: 1;
+}
+.Footer_containerapp{
+    display:flex;
+    justify-content:flex-end;
+    margin-right: 20px;
+}
+
+.menu ul{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin:-30px;
+    padding: -30px;
+    display:flex;
+
+}
+ul li{
+    list-style: none;
+}
+ul li a{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display:block;
+    text-align: center;
+    margin: 0 10px;
+    border-radius: 50%;
+    padding: 6px;
+    box-sizing: border-box;
+    text-decoration: none;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+    background: linear-gradient(0deg, #ddd, #fff);
+    transition: .5s
+}
+ul li a:hover{
+    box-shadow: 0 20px 5px rgba(0,0,0,0.3);
+    text-decoration: none;
+}
+ul li a .fa-brands{
+    width:100%;
+    height: 100%;
+    display: block;
+    background: linear-gradient(0deg, #fff,#ddd);
+    border-radius: 50%;
+    line-height: calc(60px - 12px);
+    font-size: 24px;
+    color: #262626;
+    transition: 0.5s
+}
+ul li:nth-child(1) a:hover .fa-brands{
+    color: #345aad
+}
+ul li:nth-child(2) a:hover .fa-brands{
+    color: #020203
+}
+ul li:nth-child(3) a:hover .fa-brands{
+    color: #49c524
 }
